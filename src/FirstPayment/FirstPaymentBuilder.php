@@ -154,6 +154,10 @@ class FirstPaymentBuilder
      */
     public function setFirstPaymentMethod($method)
     {
+        if (is_string($method)) {
+            $method = $this->castPaymentMethodString($method);
+        }
+
         $this->method = $method;
 
         return $this;
